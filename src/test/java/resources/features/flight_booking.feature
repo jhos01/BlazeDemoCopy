@@ -2,8 +2,7 @@ Feature: Flight booking on BlazeDemo
 
   Scenario: Complete the purchase of a flight
     Given the user is on the BlazeDemo homepage
-    When they select "Boston" as the departure city
-    And they select "London" as the destination city
+    When they select "Boston" as the departure city and they select "London" as the destination city
     And they search for flights
     Then they should see the flight results page
     When they select the cheapest available flight
