@@ -51,7 +51,7 @@ public class FlightBookingSteps {
     @When("they select the cheapest available flight")
     public void theySelectTheCheapestAvailableFlight() {
         flightsPage = new FlightsPage(driver);
-        flightsPage.selectFirstFlight();
+        flightsPage.selectCheapestFlight();
     }
 
     @And("they enter the purchase information")
