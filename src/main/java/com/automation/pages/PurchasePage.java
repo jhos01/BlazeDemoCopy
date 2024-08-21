@@ -23,25 +23,15 @@ public class PurchasePage {
     @FindBy(xpath = "//input[@value='Purchase Flight']")
     private WebElement purchaseFlightButton;
 
-
     public PurchasePage(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
 
-    public void enterName(String name){
+    public void fillPurchaseFields(String name, String address,String city, String zipCode){
         nameField.sendKeys(name);
-    }
-
-    public void enterAddress(String address){
         addressField.sendKeys(address);
-    }
-
-    public void enterCity(String city){
         cityField.sendKeys(city);
-     }
-
-    public void enterZipCode(String zipCode){
         zipCodeField.sendKeys(zipCode);
     }
 

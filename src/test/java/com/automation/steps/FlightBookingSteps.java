@@ -56,11 +56,8 @@ public class FlightBookingSteps {
 
     @And("they enter the purchase information")
     public void theyEnterThePurchaseInformation() {
-        PurchasePage purchasePage = new PurchasePage(driver);
-        purchasePage.enterName("Fernando");
-        purchasePage.enterAddress("123 The Kings, MX");
-        purchasePage.enterCity("Michigan");
-        purchasePage.enterZipCode("10301");
+        purchasePage = new PurchasePage(driver);
+        purchasePage.fillPurchaseFields("Fernando","123 The Kings, MX","Michigan","10301");
         purchasePage.clickPurchaseFlight();
     }
 
