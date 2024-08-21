@@ -4,6 +4,7 @@ import com.automation.pages.ConfirmationPage;
 import com.automation.pages.FlightsPage;
 import com.automation.pages.HomePage;
 import com.automation.pages.PurchasePage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,8 +22,8 @@ public class FlightBookingSteps {
     PurchasePage purchasePage;
     ConfirmationPage confirmationPage;
 
-    @Given("el usuario esta en la pagina de inicio de BlazeDemo")
-    public void el_usuario_esta_en_la_pagina_de_inicio_de_BlazeDemo() {
+    @Given("the user is on the BlazeDemo homepage")
+    public void theUserIsOnTheBlazeDemoHomepage() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -30,35 +31,35 @@ public class FlightBookingSteps {
         homePage = new HomePage(driver);
     }
 
-    @When("selecciona {string} como ciudad de origen")
-    public void selecciona_ciudad_de_origen(String fromCity) {
+    @When("they select {string} as the departure city")
+    public void theySelectAsTheDepartureCity(String fromCity) {
         homePage.selectFromCity(fromCity);
     }
-    @When("selecciona {string} como ciudad de Destino")
-    public void selecciona_ciudad_de_destino(String toCity){
+
+    @And("they select {string} as the destination city")
+    public void theySelectAsTheDestinationCity(String toCity) {
         homePage.selectToCity(toCity);
     }
 
-    @When("busca vuelos")
-    public void busca_vuelo()
-    {
+    @And("they search for flights")
+    public void theySearchForFlights() {
         homePage.clickFindFlight();
     }
 
-    @Then("debería ver la página de resultados de vuelos")
-    public void debería_ver_la_página_de_resultados_de_vuelos(){
+    @Then("they should see the flight results page")
+    public void theyShouldSeeTheFlightResultsPage() {
         String pageTitle = driver.getTitle();
-        assertEquals("BlazeDemo - reserve",pageTitle, "El título no coincide.");
+        assertEquals("BlazeDemo - reserve", pageTitle );
     }
 
-    @When("selecciona el vuelo mas barato")
-    public void selecciona_el_vuelo_mas_barato() {
+    @When("they select the cheapest available flight")
+    public void theySelectTheCheapestAvailableFlight() {
         flightsPage = new FlightsPage(driver);
         flightsPage.selectFirstFlight();
     }
 
-    @When("ingresa la informacion de compra")
-    public void ingresa_la_informacion_de_compra(){
+    @And("they enter the purchase information")
+    public void theyEnterThePurchaseInformation() {
         PurchasePage purchasePage = new PurchasePage(driver);
         purchasePage.enterName("Fernando");
         purchasePage.enterAddress("123 The Kings, MX");
@@ -67,16 +68,17 @@ public class FlightBookingSteps {
         purchasePage.clickPurchaseFlight();
     }
 
-    @Then("debería de ver la confirmacion de compra con un mensaje de exito")
-    public void debería_de_ver_la_confirmacion_de_compra_con_un_mensaje_de_exito(){
+    @Then("they should see a purchase confirmation with a success message")
+    public void theyShouldSeeAPurchaseConfirmationWithASuccessMessage() {
         ConfirmationPage confirmationPage = new ConfirmationPage(driver);
-        assertEquals("Thank you for your purchase today!", confirmationPage.getConfirmationMessage(),"El mensaje se confirmacion no coincide");
+        assertEquals("Thank you for your purchase today!", confirmationPage.getConfirmationMessage());
     }
 
-    @Then("debería de ver un ID de reserva")
-    public void debería_de_ver_un_ID_de_reserva(){
+    @And("they should see a booking ID")
+    public void theyShouldSeeABookingID() {
+        confirmationPage = new ConfirmationPage(driver);
         String bookingId = confirmationPage.getBookingId();
-        assertNotNull(bookingId, "No se encontró el ID de la reserva.");
+        assertNotNull(bookingId);
         assertFalse("El ID de reserva esta vació.", bookingId.isEmpty());
         driver.quit();
     }
