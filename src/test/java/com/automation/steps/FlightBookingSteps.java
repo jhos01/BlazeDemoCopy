@@ -31,14 +31,10 @@ public class FlightBookingSteps {
         homePage = new HomePage(driver);
     }
 
-    @When("they select {string} as the departure city")
-    public void theySelectAsTheDepartureCity(String fromCity) {
-        homePage.selectFromCity(fromCity);
-    }
-
-    @And("they select {string} as the destination city")
-    public void theySelectAsTheDestinationCity(String toCity) {
-        homePage.selectToCity(toCity);
+    @When("they select {string} as the departure city and they select {string} as the destination city")
+    public void theySelectAsTheDepartureCityAndTheySelectAsTheDestinationCity(String fromCity, String toCity) {
+        homePage = new HomePage(driver);
+        homePage.selectFromAndToCity(fromCity, toCity);
     }
 
     @And("they search for flights")
@@ -82,4 +78,6 @@ public class FlightBookingSteps {
         assertFalse("El ID de reserva esta vació.", bookingId.isEmpty());
         driver.quit();
     }
+
+
 }
