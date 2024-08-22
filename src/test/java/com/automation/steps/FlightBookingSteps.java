@@ -11,7 +11,6 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import static org.junit.Assert.*;
 
 public class FlightBookingSteps {
@@ -76,6 +75,4 @@ public class FlightBookingSteps {
         assertFalse("El ID de reserva esta vació.", bookingId.isEmpty());
         driver.quit();
     }
-
-
 }

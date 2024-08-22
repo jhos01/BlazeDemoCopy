@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ConfirmationPage {
     WebDriver driver;
+
     @FindBy(tagName = "h1")
     private WebElement confirmationMessage;
 
