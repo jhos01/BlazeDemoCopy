@@ -51,6 +51,7 @@ public class FlightBookingSteps {
     @When("they select the cheapest available flight")
     public void theySelectTheCheapestAvailableFlight() {
         flightsPage = new FlightsPage(driver);
+        System.out.println("string de test");
         flightsPage.selectCheapestFlight();
     }
 

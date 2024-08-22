@@ -11,24 +11,18 @@ import java.util.List;
 
 public class FlightsPage {
     WebDriver driver;
-    @FindBy (xpath = "//input[@value='Choose This Flight']")
-    private WebElement chooseFlightButton;
 
-    @FindBy(className = "btn btn-small")
-    List<WebElement> buttons;
+    @FindBy(css = ".btn.btn-small")
+    public List<WebElement> buttons;
 
     @FindBy(tagName = "td")
-    List<WebElement> tdElements;
+    public List<WebElement> tdElements;
 
-    List<WebElement> priceList = new ArrayList<>();
+    public List<WebElement> priceList = new ArrayList<>();
 
     public FlightsPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
-    }
-
-    public void selectFirstFlight(){
-        chooseFlightButton.click();
     }
 
     public void createPricesList() {
@@ -43,7 +37,7 @@ public class FlightsPage {
         double smallestNumber = Double.MAX_VALUE;
         int cheapestFlightPosition = 0;
         for (int i = 0; i < priceList.size(); i++ ){
-            String priceAsText = priceList.get(i).getText().replaceAll("$", "");
+            String priceAsText = priceList.get(i).getText().replace("$", "");
             double priceAsNumber = Double.parseDouble(priceAsText);
             if (priceAsNumber < smallestNumber){
                 smallestNumber =priceAsNumber;
