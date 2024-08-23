@@ -75,4 +75,14 @@ public class FlightBookingSteps {
         assertFalse("El ID de reserva esta vació.", bookingId.isEmpty());
         driver.quit();
     }
+
+    @Then("they see a message that confirms the cheapest flight was selected successfully")
+    public void theySeeAMessageThatConfirmsTheCheapestFlightWasSelectedSuccessfully() {
+        System.out.println("test works");
+    }
+
+    @And("they omit entering the purchase information")
+    public void theyOmitEnteringThePurchaseInformation() {
+        System.out.println("test2");
+    }
 }

@@ -35,7 +35,18 @@ public class PurchasePage {
         zipCodeField.sendKeys(zipCode);
     }
 
+    public void fillPurchaseFields(String name){
+        nameField.sendKeys(name);
+    }
+
+//    public void fillPurchaseFields() {
+////        System.out.println("Form not filled out");
+//
+//    }
+
+
     public void clickPurchaseFlight() {
         purchaseFlightButton.click();
     }
+
 }
