@@ -11,7 +11,8 @@ import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import static org.junit.Assert.*;
+
+import static org.testng.AssertJUnit.*;
 
 public class FlightBookingSteps {
 
