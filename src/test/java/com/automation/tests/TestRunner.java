@@ -6,5 +6,5 @@ import io.cucumber.testng.CucumberOptions;
                 features = "src/test/java/resources/features",
                 glue = "com.automation.steps",
                 plugin = {"pretty", "html:target/site/cucumber-pretty"})
-public class RunCucumberTest {
+public class TestRunner {
 }
