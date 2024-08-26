@@ -31,18 +31,28 @@ public class FlightsPage {
         }
     }
 
-    public void selectCheapestFlight(){
+    public String selectCheapestFlight(){
         createPricesList();
+        List<String> flightInfo = new ArrayList<>();
         double smallestNumber = Double.MAX_VALUE;
-        int cheapestFlightPosition = 0;
+        int cheapestFlightPosition = -1;
         for (int i = 0; i < priceList.size(); i++ ){
             String priceAsText = priceList.get(i).getText().replace("$", "");
             double priceAsNumber = Double.parseDouble(priceAsText);
+            flightInfo.add(priceAsText);
             if (priceAsNumber < smallestNumber){
                 smallestNumber =priceAsNumber;
                 cheapestFlightPosition = i;
             }
         }
-        buttons.get(cheapestFlightPosition).click();
+
+        if (cheapestFlightPosition != 1){
+            String cheapestFlight = "- Cheapest Price: " + flightInfo.get(cheapestFlightPosition);
+            buttons.get(cheapestFlightPosition).click();
+            return cheapestFlight;
+        }
+        else {
+            return "No flights available";
+        }
     }
 }

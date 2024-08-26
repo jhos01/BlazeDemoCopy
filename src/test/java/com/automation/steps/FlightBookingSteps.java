@@ -51,8 +51,8 @@ public class FlightBookingSteps {
     @When("they select the cheapest available flight")
     public void theySelectTheCheapestAvailableFlight() {
         flightsPage = new FlightsPage(driver);
-        System.out.println("string de test");
-        flightsPage.selectCheapestFlight();
+        String result = flightsPage.selectCheapestFlight();
+        assertEquals("- Cheapest Price: 200.98",result);
     }
 
     @And("they enter the purchase information")
