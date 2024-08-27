@@ -33,20 +33,20 @@ public class PurchasePage {
         addressField.sendKeys(address);
         cityField.sendKeys(city);
         zipCodeField.sendKeys(zipCode);
+        purchaseFlightButton.click();
     }
 
-    public void fillPurchaseFields(String name){
-        nameField.sendKeys(name);
-    }
-
-//    public void fillPurchaseFields() {
-////        System.out.println("Form not filled out");
+//    public void fillPurchaseFields(String name){
+//        nameField.sendKeys(name);
+//    }
 //
+//    public void fillPurchaseFields() {
+//        System.out.println("Form not filled out");
 //    }
 
 
-    public void clickPurchaseFlight() {
-        purchaseFlightButton.click();
-    }
+//    public void clickPurchaseFlight() {
+//        purchaseFlightButton.click();
+//    }
 
 }

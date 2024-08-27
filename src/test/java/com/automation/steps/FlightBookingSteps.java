@@ -55,11 +55,11 @@ public class FlightBookingSteps {
         assertEquals("- Cheapest Price: 200.98",result);
     }
 
-    @And("they enter the purchase information")
-    public void theyEnterThePurchaseInformation() {
+    @And("they enter the purchase information name {string}, address {string}, city {string}, zipCode {string}")
+    public void theyEnterThePurchaseInformation(String name,String address, String city, String zipCode) {
         purchasePage = new PurchasePage(driver);
-        purchasePage.fillPurchaseFields("Fernando","123 The Kings, MX","Michigan","10301");
-        purchasePage.clickPurchaseFlight();
+        purchasePage.fillPurchaseFields(name, address, city, zipCode);
+//        purchasePage.clickPurchaseFlight();
     }
 
     @Then("they should see a purchase confirmation with a success message")
@@ -75,15 +75,5 @@ public class FlightBookingSteps {
         assertNotNull(bookingId);
         assertFalse("El ID de reserva esta vació.", bookingId.isEmpty());
         driver.quit();
-    }
-
-    @Then("they see a message that confirms the cheapest flight was selected successfully")
-    public void theySeeAMessageThatConfirmsTheCheapestFlightWasSelectedSuccessfully() {
-        System.out.println("test works");
-    }
-
-    @And("they omit entering the purchase information")
-    public void theyOmitEnteringThePurchaseInformation() {
-        System.out.println("test2");
     }
 }
