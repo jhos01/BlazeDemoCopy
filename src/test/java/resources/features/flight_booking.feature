@@ -14,4 +14,4 @@ Feature: Flight booking on BlazeDemo
       | name     | address        | city        | zipCode |
       | Fernando | San Diego  #23 | California  | 45354   |
       | Maria    | Desmond #104   | Los Angeles | 14549   |
-      |          |                |             |         |
+      | Juan     |                |             |         |
